@@ -2,10 +2,8 @@ package com.naranja.transactions.controllers;
 
 import com.naranja.transactions.dto.AccountDTO;
 import com.naranja.transactions.exceptions.CustomValidationException;
-import com.naranja.transactions.models.Account;
 import com.naranja.transactions.models.Transaction;
 import com.naranja.transactions.services.ITransactionService;
-import com.naranja.transactions.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.Comparator;
 import java.util.Set;
 
 @RestController
@@ -36,6 +34,7 @@ public class TransactionController {
 
     @PostMapping(path = "/batch", consumes = "application/json", produces = "application/json")
     private AccountDTO createTransactions(@RequestBody Transaction[] transactions) throws CustomValidationException {
+        Arrays.sort(transactions, Comparator.comparing(Transaction::getTransactionTime));
         return transactionService.createTransactions(Arrays.asList(transactions));
     }
 

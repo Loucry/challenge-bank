@@ -93,8 +93,6 @@ public class TransactionService implements ITransactionService {
 
         transactionValidator.validateCreateTransaction(transaction);
 
-        //transaction = transactionRepository.save(transaction);
-
         switch (transaction.getTransactionType()) {
             case withdraw:
             case purchase:

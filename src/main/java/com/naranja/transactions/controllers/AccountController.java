@@ -2,7 +2,6 @@ package com.naranja.transactions.controllers;
 
 import com.naranja.transactions.exceptions.CustomValidationException;
 import com.naranja.transactions.models.Account;
-import com.naranja.transactions.services.AccountService;
 import com.naranja.transactions.services.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

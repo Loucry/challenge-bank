@@ -56,7 +56,7 @@ public class AccountService implements IAccountService {
             updatedNameOrDni = true;
         }
         if (!account.getDni().equals(dbAccount.getDni())) {
-            dbAccount.setName(account.getName());
+            dbAccount.setDni(account.getDni());
             updatedNameOrDni = true;
         }
 
